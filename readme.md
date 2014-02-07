@@ -25,7 +25,7 @@ That's it, now tell you apps to use **localhost:8080** as an HTTP proxy.
 ## API
 
 #### proxy.rewriteUrl(url)
-Type: `String`
+Type: `String`  
 Full URL, for example http://something.com/index.php?test=true
 
 Simple example:
@@ -55,7 +55,7 @@ proxy.rewriteUrl = function(url) {
 Remember to always return your url.
 
 #### proxy.rewriteHeaders(headers)
-Type: `Object`
+Type: `Object`  
 Request headers. More info in Node.js docs: [http.IncomingMessage.headers](http://nodejs.org/api/http.html#http_message_headers)
 
 ```javascript
@@ -68,7 +68,7 @@ proxy.rewriteHeaders = function(headers) {
 Remember to always return your headers object.
 
 #### proxy.rewriteData(data)
-Type: `String`
-POST data. Usually looks like *user=MegaDestroyer98&password=123321*
-Rewrite it the same way as you rewrite an url.
+Type: `String`  
+POST data. Usually looks like *user=MegaDestroyer98&password=123321*  
+Rewrite it the same way as you rewrite an url.  
 Remember to always return your data.
