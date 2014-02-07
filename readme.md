@@ -30,9 +30,9 @@ Full URL, for example http://something.com/index.php?test=true
 
 Simple example:
 ```javascript
-// Route any request to google
+// Route any request to nodejs website
 proxy.rewriteUrl = function(url) {
-    url = 'http://google.com';
+    url = 'http://nodejs.org';
     return url;
 }
 ```
@@ -69,6 +69,6 @@ Remember to always return your headers object.
 
 #### proxy.rewriteData(data)
 Type: `String`
-POST data. Usually looks like 'user=MegaDestroyer98&password=123321'
-Rewrite it the same way as you rewrite url.
+POST data. Usually looks like *user=MegaDestroyer98&password=123321*
+Rewrite it the same way as you rewrite an url.
 Remember to always return your data.
