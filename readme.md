@@ -1,4 +1,4 @@
-# Inbetween
+# Inbetween [![NPM version][npm-image]][npm-url]
 
 A fast and simple MITM-proxy for Node.js. No https support for now.
 
@@ -72,3 +72,6 @@ Type: `String`
 POST data. Usually looks like *user=MegaDestroyer98&password=123321*  
 Rewrite it the same way as you rewrite an url.  
 Remember to always return your data.
+
+[npm-url]: https://npmjs.org/package/inbetween
+[npm-image]: https://badge.fury.io/js/inbetween.png
