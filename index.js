@@ -4,11 +4,10 @@ var http = require('http');
 var url = require('url');
 
 var Proxy = function (port) {
-    var self = this;
     var server = http.createServer(function (request, response) {
-        var original_url = self.rewriteUrl(request.url);
+        var original_url = this.rewriteUrl(request.url);
         var options = url.parse(original_url);
-        options.headers = self.rewriteHeaders(request.headers);
+        options.headers = this.rewriteHeaders(request.headers);
         options.method = request.method;
 
         var proxy_request = http.request(options, function (proxy_response) {
@@ -16,17 +15,17 @@ var Proxy = function (port) {
             proxy_response.pipe(response);
         });
 
-        if (self.hasOwnProperty('rewriteData')) {
+        if (this.hasOwnProperty('rewriteData')) {
             var request_data = '';
             request.on('data', function (chunk) {
                 request_data += chunk;
             });
             request.on('end', function () {
-                var data = self.rewriteData(request_data);
+                var data = this.rewriteData(request_data);
                 if (data) {
                     proxy_request.write(data);
                 }
-            });
+            }.bind(this));
         } else {
             request.on('data', function (chunk) {
                 proxy_request.write(chunk);
@@ -36,7 +35,7 @@ var Proxy = function (port) {
             response.end();
         });
         proxy_request.end();
-    });
+    }.bind(this));
     server.listen(port);
 
 };
